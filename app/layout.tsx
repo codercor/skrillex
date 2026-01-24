@@ -4,7 +4,7 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SkrilLex | AI Governance Platform",
+  title: "BaseLex | AI Governance Platform",
   description: "Enterprise standard for managing AI regulatory risk.",
 };
 

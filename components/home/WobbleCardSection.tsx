@@ -13,7 +13,7 @@ export function WobbleCardSection() {
                         Policies that travel with your agents.
                     </h2>
                     <p className="mt-4 text-left  text-base/6 text-neutral-200">
-                        Embed compliance constraints directly into agent prompts and workflows. SkrilLex ensures no agent acts outside the law.
+                        Embed compliance constraints directly into agent prompts and workflows. BaseLex ensures no agent acts outside the law.
                     </p>
                 </div>
                 <img
