@@ -109,7 +109,7 @@ export default function Header() {
             </div>
 
             {/* Level 2: Main Navigation (White, Taller, Shadow) */}
-            <div className={`h-16 border-b flex w-max-screen items-center shadow-sm bg-bg-header border-border-subtle px-4 relative transition-all duration-500 ease-in-out z-40`}>
+            <div className={`h-16 flex items-center shadow-lg bg-bg-header/95 backdrop-blur-md border border-border-subtle px-4 relative transition-all duration-500 ease-in-out z-40 max-w-[95%] xl:max-w-7xl mx-auto rounded-2xl mt-2 md:mt-4`}>
                 <div className="w-full w-max-screen lg:px-4 sm:px-6 flex items-center justify-between">
                     {/* Logo & Primary Links */}
                     <div className="flex items-center gap-8">
