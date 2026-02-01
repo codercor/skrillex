@@ -324,7 +324,7 @@ const FractalStorySection = () => {
             tl.to([headerRef.current, textColumnRef.current, indicatorRef.current], {
                 autoAlpha: 0,
                 duration: 0.1
-            }, 0.82);
+            }, 0.95);
 
             tl.to(svgRef.current, {
                 scale: 6,
@@ -333,7 +333,7 @@ const FractalStorySection = () => {
                 filter: "blur(20px)",
                 duration: 0.18,
                 ease: "power2.in"
-            }, 0.82);
+            }, 0.95);
 
         }, sectionRef);
 
