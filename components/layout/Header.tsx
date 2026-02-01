@@ -13,7 +13,7 @@ export default function Header() {
 
     // Initial menu items
     const menuItems = [
-        { link: "/", text: "Home", image: "https://baselex.com/logo-mor.svg" },
+        { link: "/", text: "Home", image: "https://baselex.com/logo-main.svg" },
         { link: "#fractal-story-section", text: "Solution", image: "https://baselex.com/logo-mor.svg" },
         { link: "#platform", text: "Platform", image: "https://baselex.com/logo-mor.svg" },
         { link: "#pricing", text: "Packages", image: "https://baselex.com/logo-mor.svg" },
@@ -115,7 +115,7 @@ export default function Header() {
                         <div className="flex items-center group cursor-pointer gap-4 z-50">
                             {/* Added z-50 to keep logo clickable/visible above menu if needed, or menu covers it? Standard is menu covers everything but usually we want a close button or similar. Let's keep logo z-50 just in case we want to use it to close or navigate home. */}
                             <img
-                                src="/logo-mor.svg"
+                                src="/logo-main.svg"
                                 alt="SkrilLex Logo"
                                 className="h-8 w-auto transition-transform group-hover:scale-105"
                             />

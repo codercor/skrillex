@@ -219,7 +219,7 @@ export function Footer() {
                                 </div>
                                 <div className="flex items-center gap-2 lg:justify-end text-sm text-muted-foreground">
                                     <MapPin className="w-4 h-4" />
-                                    <span>San Francisco, CA</span>
+                                    <span>Basel, Switzerland</span>
                                 </div>
                             </div>
 

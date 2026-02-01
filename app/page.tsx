@@ -16,9 +16,12 @@ import PackagesSection from '@/components/home/PackagesSection';
 import FractalStorySection from '@/components/home/FractalStorySection';
 import FAQSection from '@/components/home/FAQSection';
 
+import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
+
 export default function Home() {
   return (
     <div className="min-h-screen max-w-screen overflow-x-clip font-sans selection:bg-brand-violet-soft selection:text-action-primary bg-bg-page text-text-main">
+      <ScrollIndicator />
       <Header />
       <Hero />
       <FractalStorySection />

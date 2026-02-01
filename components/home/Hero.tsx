@@ -13,6 +13,7 @@ export default function Hero() {
 
     return (
         <motion.section
+            id="hero-section"
             className="pt-32 pb-16 min-h-screen sm:pt-40 sm:pb-24 lg:pb-32 overflow-hidden relative"
             onViewportEnter={() => setActiveSection('hero')}
             onViewportLeave={() => setActiveSection(null)}
