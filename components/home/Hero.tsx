@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Globe } from "../ui/globe";
 import { NoiseBackground } from "../ui/noise-background";
 import { ShimmerButton } from "../ui/shimmer-button";
+import HeroVisual from "./HeroVisual";
 
 export default function Hero() {
     return (
@@ -67,7 +68,7 @@ export default function Hero() {
                         {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
                             <ShimmerButton>
-                                Request a demo
+                                Request a dexmo
                             </ShimmerButton>
                         </div>
 
@@ -91,11 +92,20 @@ export default function Hero() {
                     </div>
 
 
+
+
+                </div>
+
+                {/* Absolutely Positioned Visual - Top Right */}
+                <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                    <div className="pointer-events-auto origin-center scale-[0.85] xl:scale-100 translate-x-12">
+                        <HeroVisual />
+                    </div>
                 </div>
             </div>
             <div className='relative w-screen'>
                 <Globe />
             </div>
-        </section>
+        </section >
     );
 }
