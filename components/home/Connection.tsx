@@ -20,6 +20,7 @@ export function Connection() {
 
     return (
         <motion.div
+            id="platform"
             className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] relative z-20 pt-40 overflow-clip"
             ref={ref}
             onViewportEnter={() => setActiveSection('connection')}

@@ -141,7 +141,7 @@ function PackageCard({ pkg }: { pkg: ServicePackage }) {
 
 export function PackagesSection() {
     return (
-        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-bg-utility relative overflow-hidden">
+        <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 bg-bg-utility relative overflow-hidden">
             <div className="absolute inset-0 z-0">
                 <PixelBlast
                     variant="square"

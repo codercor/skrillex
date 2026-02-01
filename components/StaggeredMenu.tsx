@@ -27,6 +27,7 @@ export interface StaggeredMenuProps {
   closeOnClickAway?: boolean;
   onMenuOpen?: () => void;
   onMenuClose?: () => void;
+  onLinkClick?: (e: React.MouseEvent, link: string) => void;
   isFixed?: boolean;
   logoUrl?: string; // Kept for prop compatibility but unused if we removed logo logic
 }
@@ -45,7 +46,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   accentColor = '#5227FF',
   closeOnClickAway = true,
   onMenuOpen,
-  onMenuClose
+  onMenuClose,
+  onLinkClick
 }: StaggeredMenuProps) => {
   const isMobileMenuOpen = useUIStore((state) => state.isMobileMenuOpen);
   const setMobileMenuOpen = useUIStore((state) => state.setMobileMenuOpen);
@@ -482,7 +484,12 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                             href={it.link}
                             aria-label={it.ariaLabel}
                             data-index={idx + 1}
-                            onClick={closeMenu}
+                            onClick={(e) => {
+                              if (onLinkClick) {
+                                onLinkClick(e, it.link);
+                              }
+                              closeMenu();
+                            }}
                           >
                             <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
                               {it.label}
