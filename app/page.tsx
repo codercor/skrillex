@@ -14,6 +14,7 @@ import { Github, Linkedin, Mail, NotepadTextDashed, Twitter } from 'lucide-react
 import FinalCTA from '@/components/home/FinalCTA';
 import PackagesSection from '@/components/home/PackagesSection';
 import FractalStorySection from '@/components/home/FractalStorySection';
+import FAQSection from '@/components/home/FAQSection';
 
 export default function Home() {
   return (
@@ -60,6 +61,7 @@ export default function Home() {
 
 
 
+      <FAQSection />
       <Footer />
 
     </div>
