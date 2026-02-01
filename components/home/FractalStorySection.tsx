@@ -408,7 +408,7 @@ const FractalStorySection = () => {
                     </div>
 
                     {/* Right Column: Visual */}
-                    <div className="absolute inset-0 lg:relative flex items-end lg:items-center justify-center bg-[radial-gradient(circle_at_center,rgba(107,93,211,0.05)_0%,transparent_70%)] z-10 lg:z-auto opacity-100 lg:opacity-100 pt-48 lg:pb-0">
+                    <div className="absolute inset-0 lg:relative flex items-end lg:items-center justify-center bg-[radial-gradient(circle_at_center,rgba(107,93,211,0.05)_0%,transparent_70%)] z-10 lg:z-auto opacity-100 lg:opacity-100 pt-48 lg:pt-0">
                         <svg
                             ref={svgRef}
                             viewBox="0 0 1200 1200"

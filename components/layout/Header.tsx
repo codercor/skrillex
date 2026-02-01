@@ -102,13 +102,7 @@ export default function Header() {
                     {/* Search & Actions */}
                     <div className="flex items-center space-x-4">
                         <div className="hidden lg:flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-bold bg-bg-utility text-text-inverse">
-                            <span>Reach Out</span>
-                        </div>
-                        <div className="hidden lg:flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-bold text-text-tertiary bg-bg-surface-2 border border-border-subtle cursor-not-allowed opacity-80">
-                            <span>Console</span>
-                            <span className="bg-bg-utility/10 text-[10px] px-1.5 py-0.5 rounded uppercase tracking-wider font-extrabold text-text-secondary">
-                                Soon
-                            </span>
+                            <span>Request Demo</span>
                         </div>
                         <div className="lg:hidden z-40">
                             <StaggeredMenu
