@@ -513,7 +513,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
                 {/* Content (lists + center) */}
                 <div className="fx-content">
                   {/* Left list */}
-                  <div className="fx-left" role="list">
+                  <div className="fx-left w-fit lg:mr-auto mt-6 sm:mt-24 px-4 lg:mt-0 lg:translate-x-[-30%]" role="list">
                     <div className="fx-track" ref={leftTrackRef}>
                       {sections.map((s, i) => (
                         <div
@@ -555,7 +555,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
                   </div>
 
                   {/* Right list */}
-                  <div className="fx-right" role="list">
+                  <div className="fx-right w-fit lg:ml-auto mt-4 px-4 lg:translate-x-[30%] lg:mt-0 " role="list">
                     <div className="fx-track" ref={rightTrackRef}>
                       {sections.map((s, i) => (
                         <div
@@ -711,7 +711,7 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
           .fx-end { height: 100vh; display: grid; place-items: center; }
           .fx-fin { transform: rotate(90deg); color: #111; }
 
-          @media (max-width: 900px) {
+          @media (max-width: 1024px) {
             .fx-content {
               grid-template-columns: 1fr; row-gap: 3vh;
               place-items: center;

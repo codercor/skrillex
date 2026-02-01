@@ -9,9 +9,10 @@ import Carousel from '../components/home/Carousel';
 import TextType from '@/components/TextType';
 import { Globe } from '@/components/ui/globe';
 import { Connection } from '@/components/home/Connection';
-import { Footer } from '@/components/ui/modem-animated-footer';
+import { Footer } from '@/components/layout/Footer';
 import { Github, Linkedin, Mail, NotepadTextDashed, Twitter } from 'lucide-react';
 import FinalCTA from '@/components/home/FinalCTA';
+import PackagesSection from '@/components/home/PackagesSection';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Hero />
 
       <Connection />
+      <LottieSection />
       <Carousel />
       <div id='description'>
         <TextType
@@ -55,11 +57,15 @@ export default function Home() {
 
         </DescriptionSection>
       </div>
-      <LottieSection />
+
+      <PackagesSection />
 
       <FinalCTA />
 
-      <Footer
+
+      <Footer />
+
+      {/* <Footer
         brandName="BaseLex"
         brandDescription="BaseLex is a multi-agent compliance platform that turns laws, regulations, and internal policies into executable constraints—then enforces them at runtime across workflows, automations, and AI outputs."
         socialLinks={[
@@ -101,7 +107,7 @@ export default function Home() {
         creatorName="BaseLex"
         creatorUrl="https://baselex.com"
         brandIcon={<Image src="/logo-mor.svg" alt="BaseLex" width={40} height={40} className="object-contain" />}
-      />
+      /> */}
     </div>
   );
 }

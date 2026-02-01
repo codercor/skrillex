@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { Globe } from "../ui/globe";
+import { NoiseBackground } from "../ui/noise-background";
+import { ShimmerButton } from "../ui/shimmer-button";
 
 export default function Hero() {
     return (
@@ -64,12 +66,9 @@ export default function Hero() {
 
                         {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-bold rounded-lg text-white bg-action-primary hover:bg-action-hover shadow-elev-1 transition-all hover:-translate-y-0.5">
-                                Get started with SkrilLex
-                            </button>
-                            <button className="inline-flex items-center justify-center px-8 py-3.5 border border-border-strong text-base font-bold rounded-lg text-text-main bg-white hover:bg-bg-surface-2 shadow-sm transition-all hover:border-action-primary">
-                                Explore Documentation
-                            </button>
+                            <ShimmerButton>
+                                Request a demo
+                            </ShimmerButton>
                         </div>
 
                         {/* Trust/Status Line */}
