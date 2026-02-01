@@ -2,17 +2,32 @@
 import React from "react";
 
 import { useUIStore } from "@/store/useUIStore";
+import StaggeredMenu from "../StaggeredMenu";
 
 export default function Header() {
     const isNavbarVisible = useUIStore((state) => state.isNavbarVisible);
+    const isMobileMenuOpen = useUIStore((state) => state.isMobileMenuOpen);
+    const setMobileMenuOpen = useUIStore((state) => state.setMobileMenuOpen);
+    const menuRef = React.useRef<HTMLDivElement>(null);
+
+    // Initial menu items
+    const menuItems = [
+        { link: "/", text: "Home", image: "https://baselex.com/logo-mor.svg" },
+        { link: "#", text: "Products", image: "https://baselex.com/logo-mor.svg" },
+        { link: "#", text: "Solutions", image: "https://baselex.com/logo-mor.svg" },
+        { link: "#", text: "Pricing", image: "https://baselex.com/logo-mor.svg" },
+        { link: "#", text: "Docs", image: "https://baselex.com/logo-mor.svg" },
+    ];
+
+
 
     return (
         <header
-            className={`fixed top-0 w-full z-50 transition-transform duration-500 ease-in-out ${isNavbarVisible ? 'translate-y-0' : '-translate-y-full'
+            className={`fixed top-0 w-full z-50 transition-transform duration-500 ease-in-out ${isNavbarVisible || isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
                 }`}
         >
             {/* Level 1: Utility Bar (Dark, Global/Region) */}
-            <div className="h-10 bg-[#0B1220] text-white flex items-center relative z-30">
+            <div className={`h-10 bg-[#0B1220] text-white flex items-center  relative z-32 transition-all duration-500 ease-in-out`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between text-xs font-medium">
                     {/* Left: Global Brand/Context */}
                     <div className="flex items-center space-x-4 opacity-90 hover:opacity-100 transition-opacity cursor-pointer">
@@ -23,7 +38,7 @@ export default function Header() {
                     </div>
 
                     {/* Right: Region, Support, Account */}
-                    <div className="flex items-center space-x-6">
+                    <div className="hidden md:flex items-center space-x-6">
                         <div className="flex items-center space-x-1 cursor-pointer hover:text-brand-accent transition-colors">
                             <span className="text-gray-400">Jurisdiction:</span>
                             <span>EU</span>
@@ -49,11 +64,12 @@ export default function Header() {
             </div>
 
             {/* Level 2: Main Navigation (White, Taller, Shadow) */}
-            <div className="h-16 border-b flex items-center shadow-sm bg-bg-header border-border-subtle relative z-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between">
+            <div className={`h-16 border-b flex w-max-screen items-center shadow-sm bg-bg-header border-border-subtle px-4 relative transition-all duration-500 ease-in-out z-40`}>
+                <div className="w-full w-max-screen lg:px-4 sm:px-6 flex items-center justify-between">
                     {/* Logo & Primary Links */}
                     <div className="flex items-center gap-8">
-                        <div className="flex items-center group cursor-pointer">
+                        <div className="flex items-center group cursor-pointer z-50">
+                            {/* Added z-50 to keep logo clickable/visible above menu if needed, or menu covers it? Standard is menu covers everything but usually we want a close button or similar. Let's keep logo z-50 just in case we want to use it to close or navigate home. */}
                             <img
                                 src="/skrillex-logo-light.svg"
                                 alt="SkrilLex Logo"
@@ -61,7 +77,7 @@ export default function Header() {
                             />
                         </div>
 
-                        <nav className="hidden md:flex items-center space-x-6">
+                        <nav className="hidden lg:flex items-center space-x-6">
                             <div className="flex items-center space-x-1 cursor-pointer font-semibold text-sm hover:text-action-primary text-text-main transition-colors">
                                 <span>Products</span>
                             </div>
@@ -85,18 +101,34 @@ export default function Header() {
 
                     {/* Search & Actions */}
                     <div className="flex items-center space-x-4">
-                        <div className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-bold bg-bg-utility text-text-inverse">
+                        <div className="hidden lg:flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-bold bg-bg-utility text-text-inverse">
                             <span>Reach Out</span>
                         </div>
-                        <div className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-bold text-text-tertiary bg-bg-surface-2 border border-border-subtle cursor-not-allowed opacity-80">
+                        <div className="hidden lg:flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-bold text-text-tertiary bg-bg-surface-2 border border-border-subtle cursor-not-allowed opacity-80">
                             <span>Console</span>
                             <span className="bg-bg-utility/10 text-[10px] px-1.5 py-0.5 rounded uppercase tracking-wider font-extrabold text-text-secondary">
                                 Soon
                             </span>
                         </div>
+                        <div className="lg:hidden z-40">
+                            <StaggeredMenu
+                                onMenuOpen={() => setMobileMenuOpen(!isMobileMenuOpen)}
+                                onMenuClose={() => setMobileMenuOpen(!isMobileMenuOpen)}
+                                items={[
+                                    { label: "Products", ariaLabel: "Products", link: "/#products" },
+                                    { label: "Solutions", ariaLabel: "Solutions", link: "/#solutions" },
+                                    { label: "Pricing", ariaLabel: "Pricing", link: "/#pricing" },
+                                    { label: "Documentation", ariaLabel: "Documentation", link: "/#documentation" },
+                                ]}
+
+                                isFixed={true}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
+
+
         </header>
     );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Globe } from "../ui/globe";
 
 export default function Hero() {
     return (
@@ -92,6 +93,9 @@ export default function Hero() {
 
 
                 </div>
+            </div>
+            <div className='relative w-screen'>
+                <Globe />
             </div>
         </section>
     );

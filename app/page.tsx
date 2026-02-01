@@ -9,29 +9,17 @@ import Carousel from '../components/home/Carousel';
 import TextType from '@/components/TextType';
 import { Globe } from '@/components/ui/globe';
 import { Connection } from '@/components/home/Connection';
-import { WobbleCardSection } from '@/components/home/WobbleCardSection';
 import { Footer } from '@/components/ui/modem-animated-footer';
 import { Github, Linkedin, Mail, NotepadTextDashed, Twitter } from 'lucide-react';
-import FlowingMenu from '@/components/FlowingMenu';
 import FinalCTA from '@/components/home/FinalCTA';
-
-
-const demoItems = [
-  { link: '#', text: 'Mojave', image: 'https://picsum.photos/600/400?random=1' },
-  { link: '#', text: 'Sonoma', image: 'https://picsum.photos/600/400?random=2' },
-  { link: '#', text: 'Monterey', image: 'https://picsum.photos/600/400?random=3' },
-  { link: '#', text: 'Sequoia', image: 'https://picsum.photos/600/400?random=4' }
-];
-
 
 export default function Home() {
   return (
-    <div className="min-h-screen font-sans selection:bg-brand-violet-soft selection:text-action-primary bg-bg-page text-text-main">
+    <div className="min-h-screen max-w-screen overflow-x-clip font-sans selection:bg-brand-violet-soft selection:text-action-primary bg-bg-page text-text-main">
       <Header />
+
       <Hero />
-      <div className='absolute right-0 top-20 h-[50vh] w-[50vw] z-10'>
-        <Globe />
-      </div>
+
       <Connection />
       <Carousel />
       <div id='description'>
@@ -51,14 +39,13 @@ export default function Home() {
 
           deletingSpeed={20}
           cursorBlinkDuration={0.5}
-          className='text-5xl font-bold px-20 my-20 uppercase'
+          className='text-2xl md:text-5xl font-bold px-10 md:px-20 my-20 uppercase'
         />
         <DescriptionSection
-          baseOpacity={0.1}
+          baseOpacity={0.01}
           enableBlur
-          baseRotation={6}
-          blurStrength={6}
-
+          baseRotation={12}
+          blurStrength={30}
           containerClassName='min-h-[59vh] px-8'
         >
 
