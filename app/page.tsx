@@ -13,17 +13,15 @@ import { Footer } from '@/components/layout/Footer';
 import { Github, Linkedin, Mail, NotepadTextDashed, Twitter } from 'lucide-react';
 import FinalCTA from '@/components/home/FinalCTA';
 import PackagesSection from '@/components/home/PackagesSection';
+import FractalStorySection from '@/components/home/FractalStorySection';
 
 export default function Home() {
   return (
     <div className="min-h-screen max-w-screen overflow-x-clip font-sans selection:bg-brand-violet-soft selection:text-action-primary bg-bg-page text-text-main">
       <Header />
-
       <Hero />
-
+      <FractalStorySection />
       <Connection />
-      <LottieSection />
-      <Carousel />
       <div id='description'>
         <TextType
           typingSpeed={20}

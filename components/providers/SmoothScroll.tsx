@@ -3,9 +3,17 @@
 import { ReactLenis } from 'lenis/react';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { useScrollStore } from '@/store/useScrollStore';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
     const lenisRef = useRef<any>(null);
+    const setLenis = useScrollStore((state) => state.setLenis);
+
+    useEffect(() => {
+        if (lenisRef.current?.lenis) {
+            setLenis(lenisRef.current.lenis);
+        }
+    }, [setLenis]);
 
     useEffect(() => {
         function update(time: number) {

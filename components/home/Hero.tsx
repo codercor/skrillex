@@ -1,4 +1,7 @@
+"use client";
 import React from "react";
+import { motion } from "motion/react";
+import { useScrollStore } from "@/store/useScrollStore";
 import Image from "next/image";
 import { Globe } from "../ui/globe";
 import { NoiseBackground } from "../ui/noise-background";
@@ -6,8 +9,14 @@ import { ShimmerButton } from "../ui/shimmer-button";
 import HeroVisual from "./HeroVisual";
 
 export default function Hero() {
+    const setActiveSection = useScrollStore(state => state.setActiveSection);
+
     return (
-        <section className="pt-32 pb-16 min-h-screen sm:pt-40 sm:pb-24 lg:pb-32 overflow-hidden relative">
+        <motion.section
+            className="pt-32 pb-16 min-h-screen sm:pt-40 sm:pb-24 lg:pb-32 overflow-hidden relative"
+            onViewportEnter={() => setActiveSection('hero')}
+            onViewportLeave={() => setActiveSection(null)}
+        >
             {/* Background Image - Absolute at section level */}
             <div className="absolute inset-0 w-full h-full">
                 <Image
@@ -106,6 +115,6 @@ export default function Hero() {
             <div className='relative w-screen'>
                 <Globe />
             </div>
-        </section >
+        </motion.section >
     );
 }
