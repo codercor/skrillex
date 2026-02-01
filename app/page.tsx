@@ -17,6 +17,7 @@ import FractalStorySection from '@/components/home/FractalStorySection';
 import FAQSection from '@/components/home/FAQSection';
 
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
+import TeamSection from '@/components/home/TeamSection';
 
 export default function Home() {
   return (
@@ -62,7 +63,7 @@ export default function Home() {
 
       <PackagesSection />
 
-
+      <TeamSection />
 
       <FAQSection />
       <Footer />

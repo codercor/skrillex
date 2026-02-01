@@ -16,6 +16,7 @@ export default function Header() {
         { link: "/", text: "Home", image: "https://baselex.com/logo-main.svg" },
         { link: "#fractal-story-section", text: "Solution", image: "https://baselex.com/logo-mor.svg" },
         { link: "#platform", text: "Platform", image: "https://baselex.com/logo-mor.svg" },
+        { link: "#team", text: "Team", image: "https://baselex.com/logo-mor.svg" },
         { link: "#pricing", text: "Packages", image: "https://baselex.com/logo-mor.svg" },
         { link: "#faq", text: "FAQ", image: "https://baselex.com/logo-mor.svg" },
     ];
@@ -48,7 +49,7 @@ export default function Header() {
         }
 
         // Center alignment logic for Pricing and FAQ
-        if (id === '#pricing' || id === '#faq') {
+        if (id === '#pricing' || id === '#faq' || id === '#team') {
             const vh = window.innerHeight;
             const elHeight = scrollTarget.offsetHeight;
             // We want the center of element to be at center of screen
@@ -138,6 +139,13 @@ export default function Header() {
                                 Platform
                             </a>
                             <a
+                                href="#team"
+                                onClick={(e) => handleScroll(e, '#team')}
+                                className="font-semibold text-sm hover:text-action-primary text-text-main transition-colors"
+                            >
+                                Team
+                            </a>
+                            <a
                                 href="#pricing"
                                 onClick={(e) => handleScroll(e, '#pricing')}
                                 className="font-semibold text-sm hover:text-action-primary text-text-main transition-colors"
@@ -167,6 +175,7 @@ export default function Header() {
                                 items={[
                                     { label: "Solution", ariaLabel: "Solution", link: "#fractal-story-section" },
                                     { label: "Platform", ariaLabel: "Platform", link: "#platform" },
+                                    { label: "Team", ariaLabel: "Team", link: "#team" },
                                     { label: "Packages", ariaLabel: "Packages", link: "#pricing" },
                                     { label: "FAQ", ariaLabel: "FAQ", link: "#faq" },
                                 ]}
