@@ -11,15 +11,7 @@ export default function Header() {
     const setMobileMenuOpen = useUIStore((state) => state.setMobileMenuOpen);
     const lenis = useScrollStore((state) => state.lenis);
 
-    // Initial menu items
-    const menuItems = [
-        { link: "/", text: "Home", image: "https://baselex.com/logo-main.svg" },
-        { link: "#fractal-story-section", text: "Solution", image: "https://baselex.com/logo-mor.svg" },
-        { link: "#platform", text: "Platform", image: "https://baselex.com/logo-mor.svg" },
-        { link: "#team", text: "Team", image: "https://baselex.com/logo-mor.svg" },
-        { link: "#pricing", text: "Packages", image: "https://baselex.com/logo-mor.svg" },
-        { link: "#faq", text: "FAQ", image: "https://baselex.com/logo-mor.svg" },
-    ];
+
 
     const handleScroll = (e: React.MouseEvent, id: string) => {
         e.preventDefault();

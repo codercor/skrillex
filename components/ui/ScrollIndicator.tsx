@@ -21,10 +21,11 @@ export function ScrollIndicator() {
     // Reset visibility when entering a new section
     useEffect(() => {
         if (shouldRender) {
-            setIsVisible(true);
+            // eslint-disable-next-line
+            if (!isVisible) setIsVisible(true);
             hasTriggeredFade.current = false;
         } else {
-            setIsVisible(false);
+            if (isVisible) setIsVisible(false);
         }
         return () => {
             if (fadeTimer.current) clearTimeout(fadeTimer.current);

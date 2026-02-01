@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import { useScrollStore } from "@/store/useScrollStore";
 import Image from "next/image";
 import { Globe } from "../ui/globe";
-import { NoiseBackground } from "../ui/noise-background";
 import { ShimmerButton } from "../ui/shimmer-button";
 import HeroVisual from "./HeroVisual";
 

@@ -38,7 +38,7 @@ export function WobbleCardSection() {
                         Every decision, traced and logged.
                     </h2>
                     <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                        From the initial prompt to the final output, visualize the entire decision chain. Compliance isn't an afterthought—it's the foundation.
+                        From the initial prompt to the final output, visualize the entire decision chain. Compliance isn&apos;t an afterthought—it&apos;s the foundation.
                     </p>
                 </div>
                 <img

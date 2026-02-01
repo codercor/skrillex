@@ -1,13 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import {
-  NotepadTextDashed,
-  Twitter,
-  Linkedin,
-  Github,
-  Mail,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FooterLink {
@@ -28,7 +21,6 @@ interface FooterProps {
   navLinks?: FooterLink[];
   creatorName?: string;
   creatorUrl?: string;
-  brandIcon?: React.ReactNode;
   className?: string;
 }
 
@@ -39,7 +31,6 @@ export const Footer = ({
   navLinks = [],
   creatorName,
   creatorUrl,
-  brandIcon,
   className,
 }: FooterProps) => {
   return (

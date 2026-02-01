@@ -474,12 +474,12 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
             transform: 'translateZ(0) rotateX(0deg) rotateY(0deg)',
             background: 'rgba(0, 0, 0, 0.9)',
             backfaceVisibility: 'hidden'
-          }}
-          onMouseEnter={e => {
+          } as React.CSSProperties}
+          onMouseEnter={(e: React.MouseEvent<HTMLElement>) => {
             e.currentTarget.style.transition = 'none';
             e.currentTarget.style.transform = 'translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x))';
           }}
-          onMouseLeave={e => {
+          onMouseLeave={(e: React.MouseEvent<HTMLElement>) => {
             const shell = shellRef.current;
             if (shell?.classList.contains('entering')) {
               e.currentTarget.style.transition = 'transform 180ms ease-out';
@@ -497,7 +497,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               borderRadius: cardRadius,
               display: 'grid',
               gridArea: '1 / -1'
-            }}
+            } as React.CSSProperties}
           >
             {/* Shine layer */}
             <div style={shineStyle} />
@@ -537,8 +537,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                   backfaceVisibility: 'hidden',
                   filter: 'grayscale(100%) contrast(1.1)',
                 }}
-                onError={e => {
-                  const t = e.target as HTMLImageElement;
+                onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                  const t = e.currentTarget;
                   t.style.display = 'none';
                 }}
               />
@@ -569,8 +569,8 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
                         alt={`${name || 'User'} mini avatar`}
                         loading="lazy"
                         style={{ display: 'block', gridArea: 'auto', borderRadius: '50%', pointerEvents: 'auto' }}
-                        onError={e => {
-                          const t = e.target as HTMLImageElement;
+                        onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                          const t = e.currentTarget;
                           t.style.opacity = '0.5';
                           t.src = avatarUrl;
                         }}

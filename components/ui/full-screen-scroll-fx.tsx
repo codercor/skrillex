@@ -457,21 +457,22 @@ export const FullScreenScrollFX = forwardRef<HTMLDivElement, FullScreenFXProps>(
     }, []);
 
     // CSS vars
-    const cssVars: CSSProperties = {
-      ["--fx-font" as any]: fontFamily,
-      ["--fx-text" as any]: colors.text ?? "rgba(245,245,245,0.92)",
-      ["--fx-overlay" as any]: colors.overlay ?? "rgba(0,0,0,0.35)",
-      ["--fx-page-bg" as any]: colors.pageBg ?? "#fff",
-      ["--fx-stage-bg" as any]: colors.stageBg ?? "#000",
-      ["--fx-gap" as any]: `${gap}rem`,
-      ["--fx-grid-px" as any]: `${gridPaddingX}rem`,
-      ["--fx-row-gap" as any]: "10px",
-    };
+    const cssVars = {
+      "--fx-font": fontFamily,
+      "--fx-text": colors.text ?? "rgba(245,245,245,0.92)",
+      "--fx-overlay": colors.overlay ?? "rgba(0,0,0,0.35)",
+      "--fx-page-bg": colors.pageBg ?? "#fff",
+      "--fx-stage-bg": colors.stageBg ?? "#000",
+      "--fx-gap": `${gap}rem`,
+      "--fx-grid-px": `${gridPaddingX}rem`,
+      "--fx-row-gap": "10px",
+    } as React.CSSProperties;
 
     return (
       <div
         ref={(node) => {
-          (rootRef as any).current = node;
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          if (rootRef) (rootRef as any).current = node;
           if (typeof ref === "function") ref(node);
           else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
         }}

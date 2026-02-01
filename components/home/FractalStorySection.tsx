@@ -134,7 +134,7 @@ const FractalStorySection = () => {
         // --- 2. Pixel Grid Hazırlığı ---
 
         // --- 2. Pixel Grid Hazırlığı ---
-        let pixelColumns: any[] = [];
+        let pixelColumns: { element: HTMLDivElement; bits: HTMLDivElement[]; processed: boolean }[] = [];
         const rowsPerCol = 4;
         const pixelSize = 5;
         const gapSize = 2;

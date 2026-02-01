@@ -40,21 +40,21 @@ export function Globe({
   className?: string
   config?: COBEOptions
 }) {
-  let phi = 0
-  let width = 0
+  const phiRef = useRef(0)
+  const widthRef = useRef(0)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const pointerInteracting = useRef(null)
+  const pointerInteracting = useRef<number | null>(null)
   const pointerInteractionMovement = useRef(0)
   const [r, setR] = useState(0)
 
-  const updatePointerInteraction = (value: any) => {
+  const updatePointerInteraction = (value: number | null) => {
     pointerInteracting.current = value
     if (canvasRef.current) {
       canvasRef.current.style.cursor = value ? "grabbing" : "grab"
     }
   }
 
-  const updateMovement = (clientX: any) => {
+  const updateMovement = (clientX: number) => {
     if (pointerInteracting.current !== null) {
       const delta = clientX - pointerInteracting.current
       pointerInteractionMovement.current = delta
@@ -63,20 +63,21 @@ export function Globe({
   }
 
   const onRender = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (state: Record<string, any>) => {
-      if (!pointerInteracting.current) phi += 0.005
-      state.phi = phi + r
-      state.width = width * 2
-      state.height = width * 2
+      if (!pointerInteracting.current) phiRef.current += 0.005
+      state.phi = phiRef.current + r
+      state.width = widthRef.current * 2
+      state.height = widthRef.current * 2
     },
     [r],
   )
 
-  const onResize = () => {
+  const onResize = useCallback(() => {
     if (canvasRef.current) {
-      width = canvasRef.current.offsetWidth
+      widthRef.current = canvasRef.current.offsetWidth
     }
-  }
+  }, [])
 
   useEffect(() => {
     window.addEventListener("resize", onResize)
@@ -84,14 +85,14 @@ export function Globe({
 
     const globe = createGlobe(canvasRef.current!, {
       ...config,
-      width: width * 2,
-      height: width * 2,
+      width: widthRef.current * 2,
+      height: widthRef.current * 2,
       onRender,
     })
 
     setTimeout(() => (canvasRef.current!.style.opacity = "1"))
     return () => globe.destroy()
-  }, [])
+  }, [config, onRender, onResize])
 
   return (
     <div

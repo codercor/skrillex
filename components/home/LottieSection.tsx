@@ -14,6 +14,7 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function LottieSection() {
     const containerRef = useRef<HTMLDivElement>(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const lottieRef = useRef<any>(null);
     const setScrollProgress = useScrollStore((state) => state.setScrollProgress);
     const setNavbarVisible = useUIStore((state) => state.setNavbarVisible);
@@ -46,6 +47,7 @@ export default function LottieSection() {
 
         // Use a separate GSAP tween to handle the smooth scrubbing of the animation
         // We get the total frames directly from the JSON source to be accurate
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const totalFrames = (animationData as any).op || 120;
 
         gsap.to(animState, {
