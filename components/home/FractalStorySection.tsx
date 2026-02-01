@@ -269,7 +269,7 @@ const FractalStorySection = () => {
             }
 
             if (indicatorRef.current) {
-                indicatorRef.current.innerText = `NETWORK EXPANSION // ${(progress * 100).toFixed(2)}%`;
+                indicatorRef.current.innerText = `REGULATORY COMPLEXITY // ${(progress * 100).toFixed(2)}%`;
             }
         };
 
@@ -429,7 +429,7 @@ const FractalStorySection = () => {
 
                 {/* Footer Indicator */}
                 <div ref={indicatorRef} className="absolute bottom-12 left-[10%] text-[0.65rem] uppercase tracking-[0.5em] text-gray-400 font-semibold">
-                    NETWORK EXPANSION // 0.00%
+                    REGULATORY COMPLEXITY // 0.00%
                 </div>
                 {/* Header & Pixel Progress */}
                 <div

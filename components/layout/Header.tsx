@@ -68,13 +68,14 @@ export default function Header() {
                 <div className="w-full w-max-screen lg:px-4 sm:px-6 flex items-center justify-between">
                     {/* Logo & Primary Links */}
                     <div className="flex items-center gap-8">
-                        <div className="flex items-center group cursor-pointer z-50">
+                        <div className="flex items-center group cursor-pointer gap-4 z-50">
                             {/* Added z-50 to keep logo clickable/visible above menu if needed, or menu covers it? Standard is menu covers everything but usually we want a close button or similar. Let's keep logo z-50 just in case we want to use it to close or navigate home. */}
                             <img
-                                src="/skrillex-logo-light.svg"
+                                src="/logo-mor.svg"
                                 alt="SkrilLex Logo"
                                 className="h-8 w-auto transition-transform group-hover:scale-105"
                             />
+                            <span className="text-xl font-bold uppercase text-action-pressed hidden lg:block">Baselex</span>
                         </div>
 
                         <nav className="hidden lg:flex items-center space-x-6">

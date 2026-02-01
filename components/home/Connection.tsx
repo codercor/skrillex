@@ -27,6 +27,8 @@ export function Connection() {
             viewport={{ amount: 0.1 }} // trigger when 10% visible
         >
             <GoogleGeminiEffect
+                title="The Compliance Platform"
+                description="Built to absorb complexity. We replace fragmented workflows with a unified infrastructure, ensuring your operations are audit-ready and friction-free by default."
                 pathLengths={[
                     pathLengthFirst,
                     pathLengthSecond,
