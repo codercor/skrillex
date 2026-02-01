@@ -1,6 +1,7 @@
 import React from "react";
 import { Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import PixelBlast from "../PixelBlast";
 
 interface PackageFeature {
     text: string;
@@ -141,6 +142,18 @@ function PackageCard({ pkg }: { pkg: ServicePackage }) {
 export function PackagesSection() {
     return (
         <section className="py-24 px-4 sm:px-6 lg:px-8 bg-bg-utility relative overflow-hidden">
+            <div className="absolute inset-0 z-0">
+                <PixelBlast
+                    variant="square"
+                    pixelSize={4}
+                    color="#6B5DD3" // Brand Violet
+                    speed={10}
+                    pixelSizeJitter={0.5}
+                    enableRipples={true}
+                    rippleIntensityScale={1.5}
+                    rippleSpeed={0.5}
+                />
+            </div>
             {/* Background Gradients/Noise could go here */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(107,93,211,0.08),transparent_50%)]" />
 

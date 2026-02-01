@@ -65,49 +65,6 @@ export default function Home() {
 
       <Footer />
 
-      {/* <Footer
-        brandName="BaseLex"
-        brandDescription="BaseLex is a multi-agent compliance platform that turns laws, regulations, and internal policies into executable constraints—then enforces them at runtime across workflows, automations, and AI outputs."
-        socialLinks={[
-          {
-            icon: <Twitter className="w-6 h-6" />,
-            href: "https://twitter.com",
-            label: "Twitter",
-          },
-          {
-            icon: <Linkedin className="w-6 h-6" />,
-            href: "https://linkedin.com",
-            label: "LinkedIn",
-          },
-          {
-            icon: <Github className="w-6 h-6" />,
-            href: "https://github.com",
-            label: "GitHub",
-          },
-          {
-            icon: <Mail className="w-6 h-6" />,
-            href: "https://mail.com",
-            label: "Email",
-          },
-        ]}
-        navLinks={[
-          {
-            label: "Home",
-            href: "/",
-          },
-          {
-            label: "About",
-            href: "/about",
-          },
-          {
-            label: "Contact",
-            href: "/contact",
-          },
-        ]}
-        creatorName="BaseLex"
-        creatorUrl="https://baselex.com"
-        brandIcon={<Image src="/logo-mor.svg" alt="BaseLex" width={40} height={40} className="object-contain" />}
-      /> */}
     </div>
   );
 }
