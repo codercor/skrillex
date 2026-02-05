@@ -2,25 +2,26 @@ import type { Metadata } from "next";
 import GSAPRegistry from "@/components/providers/GSAPRegistry";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import "./globals.css";
+import { Urbanist, DM_Sans } from "next/font/google";
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  variable: "--font-urbanist",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "BaseLex | AI Governance Platform",
   description: "Enterprise standard for managing AI regulatory risk.",
 };
 
-import { Syne, Space_Grotesk } from "next/font/google";
 
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
 
 export default function RootLayout({
   children,
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${syne.variable} ${spaceGrotesk.variable} antialiased font-sans bg-bg-page text-text-main`} suppressHydrationWarning>
+      <body className={`${urbanist.variable} ${dmSans.variable} antialiased font-sans bg-bg-page text-text-main`} suppressHydrationWarning>
         <GSAPRegistry>
           <SmoothScroll>
             {children}

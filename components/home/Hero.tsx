@@ -77,7 +77,7 @@ export default function Hero() {
                         {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
                             <ShimmerButton>
-                                Request a dexmo
+                                Request a demo
                             </ShimmerButton>
                         </div>
 

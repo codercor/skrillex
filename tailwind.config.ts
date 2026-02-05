@@ -66,9 +66,9 @@ const config: Config = {
             },
 
             fontFamily: {
-                sans: ["var(--font-space-grotesk)", "sans-serif"],
-                heading: ["var(--font-syne)", "sans-serif"],
-                mono: ["var(--font-space-grotesk)", "monospace"],
+                sans: ["var(--font-dm-sans)", "sans-serif"],
+                heading: ["var(--font-urbanist)", "sans-serif"],
+                mono: ["monospace"],
             },
         },
     },
