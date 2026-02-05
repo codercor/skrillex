@@ -61,7 +61,7 @@ export default function Hero() {
                         </div>
 
                         {/* Headline */}
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-main mb-6 leading-tight">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-text-main mb-6 leading-tight">
                             The agentic platform that <br className="hidden lg:block" />
                             <span className="text-transparent bg-clip-text bg-brand">
                                 scales with you.

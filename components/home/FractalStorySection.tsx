@@ -395,7 +395,7 @@ const FractalStorySection = () => {
                                 ref={el => { stepsRef.current[i] = el; }}
                                 className="absolute opacity-0 invisible pointer-events-none"
                             >
-                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-6 tracking-tight text-white leading-none">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-light mb-6 tracking-tight text-white leading-none">
                                     {item.title.split('. ').map((part, idx) => (
                                         <span key={idx} className="block">{idx === 0 ? part + '.' : part}</span>
                                     ))}
