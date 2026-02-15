@@ -1,23 +1,16 @@
 'use client'
-import React from 'react';
-import Image from 'next/image';
 import Header from '../components/layout/Header';
 import Hero from '../components/home/Hero';
-import LottieSection from '../components/home/LottieSection';
 import DescriptionSection from '../components/home/DescriptionSection';
-import Carousel from '../components/home/Carousel';
 import TextType from '@/components/TextType';
-import { Globe } from '@/components/ui/globe';
-import { Connection } from '@/components/home/Connection';
 import { Footer } from '@/components/layout/Footer';
-import { Github, Linkedin, Mail, NotepadTextDashed, Twitter } from 'lucide-react';
-import FinalCTA from '@/components/home/FinalCTA';
 import PackagesSection from '@/components/home/PackagesSection';
 import FractalStorySection from '@/components/home/FractalStorySection';
 import FAQSection from '@/components/home/FAQSection';
 
 import { ScrollIndicator } from '@/components/ui/ScrollIndicator';
 import TeamSection from '@/components/home/TeamSection';
+import Solution from '@/components/home/Solution';
 
 export default function Home() {
   return (
@@ -26,7 +19,9 @@ export default function Home() {
       <Header />
       <Hero />
       <FractalStorySection />
-      <Connection />
+      <div className="w-full">
+        <Solution />
+      </div>
       <div id='description'>
         <TextType
           typingSpeed={20}
@@ -51,13 +46,10 @@ export default function Home() {
           enableBlur
           baseRotation={12}
           blurStrength={30}
-          containerClassName='min-h-[59vh] px-8'
+          containerClassName='min-h-[70vh] px-8'
         >
-
           BaseLex is a multi-agent compliance platform that turns laws, regulations, and internal policies into executable constraints—then enforces them at runtime across workflows, automations, and AI outputs.
-
           In short: BaseLex doesn’t sell “agents.” It sells the compliance control plane that governs every agent and high-risk workflow, producing audit-grade, traceable decisions by default.
-
         </DescriptionSection>
       </div>
 
