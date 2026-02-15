@@ -174,12 +174,10 @@ export function Footer() {
                         {/* Logo and description */}
                         <div className="max-w-md">
                             <div className="flex items-center gap-3 mb-4">
-                                <div className="flex items-center justify-center w-10 h-10">
-                                    <Image src="/logo-mor.svg" alt="BaseLex" width={40} height={40} className="object-contain" />
+                                <div className="flex items-center justify-center w-40 h-10">
+                                    <img src="/logo-h-text.svg" alt="BaseLex" className='w-full h-full object-contain' />
                                 </div>
-                                <span className="text-xl font-bold text-action-primary tracking-tight">
-                                    BASELEX
-                                </span>
+
                             </div>
                             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                                 The agentic platform that scales with you. Design, fuel, and operationalize

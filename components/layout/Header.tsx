@@ -108,9 +108,9 @@ export default function Header() {
                         <div className="flex items-center group cursor-pointer z-50">
                             {/* Logo */}
                             <img
-                                src="/logo-h-text.svg"
+                                src="/logo-v-text.svg"
                                 alt="SkrilLex Logo"
-                                className="h-8 w-auto transition-transform group-hover:scale-105"
+                                className="h-12 w-auto transition-transform group-hover:scale-105"
                             />
                         </div>
 

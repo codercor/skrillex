@@ -19,9 +19,9 @@ export default function Home() {
       <Header />
       <Hero />
       <FractalStorySection />
-      <div className="w-full">
-        <Solution />
-      </div>
+
+      <Solution />
+
       <div id='description'>
         <TextType
           typingSpeed={20}
@@ -44,8 +44,8 @@ export default function Home() {
         <DescriptionSection
           baseOpacity={0.01}
           enableBlur
-          baseRotation={12}
-          blurStrength={30}
+          baseRotation={6}
+          blurStrength={20}
           containerClassName='min-h-[70vh] px-8'
         >
           BaseLex is a multi-agent compliance platform that turns laws, regulations, and internal policies into executable constraints—then enforces them at runtime across workflows, automations, and AI outputs.

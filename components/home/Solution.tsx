@@ -108,7 +108,7 @@ const BaselexChaosToOrder = () => {
     }, []);
 
     return (
-        <div className="bg-slate-950 min-h-screen text-white font-sans selection:bg-[#00B3A4] selection:text-white">
+        <div id='platform' className="bg-slate-950 min-h-screen text-white font-sans selection:bg-[#00B3A4] selection:text-white">
 
             {/* Main Animation Container */}
             <div ref={containerRef} className="h-[300vh] relative">
