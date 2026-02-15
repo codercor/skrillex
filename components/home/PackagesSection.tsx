@@ -2,6 +2,9 @@ import React from "react";
 import { Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import PixelBlast from "../PixelBlast";
+import LiquidModal from "../ui/LiquidModal";
+import RequestDemoForm from "../forms/RequestDemoForm";
+import { motion } from "motion/react";
 
 interface PackageFeature {
     text: string;
@@ -123,17 +126,29 @@ function PackageCard({ pkg }: { pkg: ServicePackage }) {
             </div>
 
             <div className="mt-auto">
-                <button
-                    className={cn(
-                        "w-full py-3 px-4 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2",
-                        pkg.highlighted
-                            ? "bg-brand-violet hover:bg-[#5A4CB4] text-white shadow-lg shadow-brand-violet/20"
-                            : "bg-white/5 hover:bg-white/10 text-white border border-white/5"
+                <LiquidModal
+                    title="Request Demo"
+                    trigger={({ open, layoutId, titleLayoutId, title }: any) => (
+                        <motion.button
+                            layoutId={layoutId}
+                            onClick={open}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            transition={{ duration: 0.2 }}
+                            className={cn(
+                                "w-full py-3 px-4 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2",
+                                pkg.highlighted
+                                    ? "bg-brand-violet hover:bg-[#5A4CB4] text-white shadow-lg shadow-brand-violet/20"
+                                    : "bg-white/5 hover:bg-white/10 text-white border border-white/5"
+                            )}
+                        >
+                            Contact Sales
+                            <ArrowRight className="h-4 w-4" />
+                        </motion.button>
                     )}
                 >
-                    Contact Sales
-                    <ArrowRight className="h-4 w-4" />
-                </button>
+                    <RequestDemoForm />
+                </LiquidModal>
             </div>
         </div>
     );
@@ -193,9 +208,23 @@ export function PackagesSection() {
                                     Our team will work with you to create a package that fits your exact requirements.
                                 </p>
                             </div>
-                            <button className="whitespace-nowrap bg-white text-bg-utility hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors">
-                                Schedule a Consultation
-                            </button>
+                            <LiquidModal
+                                title="Request Demo"
+                                trigger={({ open, layoutId, titleLayoutId, title }: any) => (
+                                    <motion.button
+                                        layoutId={layoutId}
+                                        onClick={open}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="whitespace-nowrap bg-white text-bg-utility hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors"
+                                    >
+                                        Schedule a Consultation
+                                    </motion.button>
+                                )}
+                            >
+                                <RequestDemoForm />
+                            </LiquidModal>
                         </div>
                     </div>
                 </div>

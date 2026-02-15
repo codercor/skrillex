@@ -6,6 +6,8 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { ShimmerButton } from "../ui/shimmer-button";
 import HeroVisual from "./HeroVisual";
+import LiquidModal from "../ui/LiquidModal";
+import RequestDemoForm from "../forms/RequestDemoForm";
 
 const Globe = dynamic(() => import("../ui/globe-client").then(mod => ({ default: mod.World })), {
     ssr: false,
@@ -253,9 +255,25 @@ export default function Hero() {
 
                         {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <ShimmerButton>
-                                Request a demo
-                            </ShimmerButton>
+                            <LiquidModal
+                                title="Request Demo"
+                                trigger={({ open, layoutId, titleLayoutId, title }: any) => (
+                                    <motion.div
+                                        layoutId={layoutId}
+                                        onClick={open}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="inline-block"
+                                    >
+                                        <ShimmerButton>
+                                            <motion.span layoutId={titleLayoutId} className="inline-block">{title}</motion.span>
+                                        </ShimmerButton>
+                                    </motion.div>
+                                )}
+                            >
+                                <RequestDemoForm />
+                            </LiquidModal>
                         </div>
 
                         {/* Trust/Status Line */}

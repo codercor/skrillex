@@ -4,6 +4,10 @@ import React from "react";
 import { useUIStore } from "@/store/useUIStore";
 import { useScrollStore } from "@/store/useScrollStore";
 import StaggeredMenu from "../StaggeredMenu";
+import LiquidModal from "../ui/LiquidModal";
+import { motion } from "motion/react";
+import RequestDemoForm from "../forms/RequestDemoForm";
+
 
 export default function Header() {
     const isNavbarVisible = useUIStore((state) => state.isNavbarVisible);
@@ -155,9 +159,24 @@ export default function Header() {
 
                     {/* Search & Actions */}
                     <div className="flex items-center space-x-4">
-                        <div className="hidden lg:flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-bold bg-bg-utility text-text-inverse">
-                            <span>Request Demo</span>
-                        </div>
+                        <LiquidModal
+                            title="Request Demo"
+                            trigger={({ open, layoutId, titleLayoutId, title }: any) => (
+                                <motion.button
+                                    layoutId={layoutId}
+                                    onClick={open}
+                                    // initial/animate opacity prop'larını kaldırdık
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="hidden lg:flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-bold bg-bg-utility text-text-inverse">
+                                    <motion.span layoutId={titleLayoutId} className="inline-block">{title}</motion.span>
+                                </motion.button>
+                            )}
+                        >
+
+                            <RequestDemoForm />
+                        </LiquidModal>
                         <div className="lg:hidden z-40">
                             <StaggeredMenu
                                 onMenuOpen={() => setMobileMenuOpen(!isMobileMenuOpen)}
