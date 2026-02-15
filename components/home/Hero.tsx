@@ -3,9 +3,186 @@ import React from "react";
 import { motion } from "motion/react";
 import { useScrollStore } from "@/store/useScrollStore";
 import Image from "next/image";
-import { Globe } from "../ui/globe";
+import dynamic from "next/dynamic";
 import { ShimmerButton } from "../ui/shimmer-button";
 import HeroVisual from "./HeroVisual";
+
+const Globe = dynamic(() => import("../ui/globe-client").then(mod => ({ default: mod.World })), {
+    ssr: false,
+});
+
+const sampleArcs = [
+    // Europe to Americas
+    {
+        order: 1,
+        startLat: 51.5074,
+        startLng: -0.1278,
+        endLat: 40.7128,
+        endLng: -74.0060,
+        arcAlt: 0.3,
+        color: "#a78bfa",
+    },
+    // Asia to Europe
+    {
+        order: 2,
+        startLat: 35.6762,
+        startLng: 139.6503,
+        endLat: 48.8566,
+        endLng: 2.3522,
+        arcAlt: 0.3,
+        color: "#c4b5fd",
+    },
+    // North America to Asia
+    {
+        order: 3,
+        startLat: 37.7749,
+        startLng: -122.4194,
+        endLat: 31.2304,
+        endLng: 121.4737,
+        arcAlt: 0.35,
+        color: "#8b5cf6",
+    },
+    // South America to Europe
+    {
+        order: 4,
+        startLat: -23.5505,
+        startLng: -46.6333,
+        endLat: 52.5200,
+        endLng: 13.4050,
+        arcAlt: 0.3,
+        color: "#a78bfa",
+    },
+    // Australia to Asia
+    {
+        order: 5,
+        startLat: -33.8688,
+        startLng: 151.2093,
+        endLat: 1.3521,
+        endLng: 103.8198,
+        arcAlt: 0.2,
+        color: "#c4b5fd",
+    },
+    // Africa to Middle East
+    {
+        order: 6,
+        startLat: -1.2921,
+        startLng: 36.8219,
+        endLat: 25.2048,
+        endLng: 55.2708,
+        arcAlt: 0.15,
+        color: "#8b5cf6",
+    },
+    // India to Europe
+    {
+        order: 7,
+        startLat: 28.6139,
+        startLng: 77.2090,
+        endLat: 51.5074,
+        endLng: -0.1278,
+        arcAlt: 0.25,
+        color: "#a78bfa",
+    },
+    // Canada to Asia
+    {
+        order: 8,
+        startLat: 43.6532,
+        startLng: -79.3832,
+        endLat: 35.6762,
+        endLng: 139.6503,
+        arcAlt: 0.35,
+        color: "#c4b5fd",
+    },
+    // Mexico to South America
+    {
+        order: 9,
+        startLat: 19.4326,
+        startLng: -99.1332,
+        endLat: -12.0464,
+        endLng: -77.0428,
+        arcAlt: 0.2,
+        color: "#8b5cf6",
+    },
+    // Russia to North America
+    {
+        order: 10,
+        startLat: 55.7558,
+        startLng: 37.6173,
+        endLat: 49.2827,
+        endLng: -123.1207,
+        arcAlt: 0.4,
+        color: "#a78bfa",
+    },
+    // Southeast Asia interconnect
+    {
+        order: 11,
+        startLat: 13.7563,
+        startLng: 100.5018,
+        endLat: 14.5995,
+        endLng: 120.9842,
+        arcAlt: 0.15,
+        color: "#c4b5fd",
+    },
+    // Middle East to Africa
+    {
+        order: 12,
+        startLat: 25.2048,
+        startLng: 55.2708,
+        endLat: -26.2041,
+        endLng: 28.0473,
+        arcAlt: 0.2,
+        color: "#8b5cf6",
+    },
+    // South America interconnect
+    {
+        order: 13,
+        startLat: -34.6037,
+        startLng: -58.3816,
+        endLat: -23.5505,
+        endLng: -46.6333,
+        arcAlt: 0.15,
+        color: "#a78bfa",
+    },
+    // Europe interconnect
+    {
+        order: 14,
+        startLat: 41.9028,
+        startLng: 12.4964,
+        endLat: 40.4168,
+        endLng: -3.7038,
+        arcAlt: 0.1,
+        color: "#c4b5fd",
+    },
+    // Asia Pacific
+    {
+        order: 15,
+        startLat: 22.3193,
+        startLng: 114.1694,
+        endLat: -37.8136,
+        endLng: 144.9631,
+        arcAlt: 0.3,
+        color: "#8b5cf6",
+    },
+];
+
+const globeConfig = {
+    pointSize: 4,
+    globeColor: "#1a0b2e",
+    showAtmosphere: true,
+    atmosphereColor: "#a78bfa",
+    atmosphereAltitude: 0.2,
+    emissive: "#4c1d95",
+    emissiveIntensity: 0.15,
+    shininess: 0.9,
+    polygonColor: "rgba(167, 139, 250, 0.6)",
+    ambientLight: "#c4b5fd",
+    directionalLeftLight: "#a78bfa",
+    directionalTopLight: "#c4b5fd",
+    pointLight: "#ddd6fe",
+    arcTime: 1500,
+    arcLength: 0.9,
+    rings: 1,
+    maxRings: 3,
+};
 
 export default function Hero() {
     const setActiveSection = useScrollStore(state => state.setActiveSection);
@@ -13,7 +190,7 @@ export default function Hero() {
     return (
         <motion.section
             id="hero-section"
-            className="pt-32 pb-16 min-h-screen sm:pt-40 sm:pb-24 lg:pb-32 overflow-hidden relative"
+            className="pt-32 pb-16 min-h-screen max-h-screen sm:pt-40 sm:pb-24 lg:pb-32 overflow-hidden relative"
             onViewportEnter={() => setActiveSection('hero')}
             onViewportLeave={() => setActiveSection(null)}
         >
@@ -112,8 +289,8 @@ export default function Hero() {
                     </div>
                 </div>
             </div>
-            <div className='relative w-screen'>
-                <Globe />
+            <div className='relative w-full h-[100vh] flex items-center justify-center'>
+                <Globe globeConfig={globeConfig} data={sampleArcs} />
             </div>
         </motion.section >
     );
